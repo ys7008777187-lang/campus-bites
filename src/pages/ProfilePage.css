@@ -1,0 +1,413 @@
+/* ===== Profile Page — Swiggy-Inspired ===== */
+
+/* ── Header ── */
+.pf-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-4);
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--sp-3);
+    box-shadow: var(--shadow-card);
+}
+
+.pf-header__left {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+}
+
+.pf-header__avatar {
+    position: relative;
+    flex-shrink: 0;
+}
+
+.pf-header__avatar-icon {
+    font-size: 3rem;
+    color: var(--orange);
+}
+
+.pf-header__avatar-edit {
+    position: absolute;
+    bottom: -2px;
+    right: -4px;
+    font-size: 0.65rem;
+    background: var(--bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-xs);
+}
+
+.pf-header__info {
+    display: flex;
+    flex-direction: column;
+}
+
+.pf-header__name {
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    line-height: 1.2;
+    color: var(--color-text);
+    letter-spacing: -0.01em;
+}
+
+.pf-header__email {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+}
+
+.pf-header__phone {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+}
+
+.pf-header__edit-btn {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: var(--bg-primary);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+}
+
+/* ── Membership ── */
+.pf-membership {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--orange-50);
+    border-radius: var(--radius-xl);
+    margin-bottom: var(--sp-3);
+    box-shadow: var(--shadow-card);
+}
+
+.pf-membership__left {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+}
+
+.pf-membership__badge {
+    font-size: 1.3rem;
+    width: 36px;
+    height: 36px;
+    background: var(--orange-pale);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pf-membership__title {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    color: var(--color-text);
+}
+
+.pf-membership__sub {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+}
+
+.pf-membership__tag {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+    background: var(--green-pale);
+    color: var(--green-dark);
+}
+
+/* ── Stats ── */
+.pf-stats {
+    display: flex;
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-3);
+    margin-bottom: var(--sp-4);
+    box-shadow: var(--shadow-card);
+}
+
+.pf-stats__item {
+    flex: 1;
+    text-align: center;
+}
+
+.pf-stats__number {
+    display: block;
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-extrabold);
+    color: var(--orange);
+    line-height: 1.2;
+}
+
+.pf-stats__label {
+    font-size: 10px;
+    color: var(--color-text-muted);
+    font-weight: var(--fw-semibold);
+    margin-top: 1px;
+    display: block;
+}
+
+.pf-stats__divider {
+    width: 1px;
+    height: 28px;
+    background: var(--color-border);
+    flex-shrink: 0;
+    align-self: center;
+}
+
+/* ── Font Size ── */
+.pf-font-section {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-3) var(--sp-4);
+    margin-bottom: var(--sp-4);
+    box-shadow: var(--shadow-card);
+}
+
+.pf-font-section__header {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    margin-bottom: var(--sp-3);
+}
+
+.pf-font-section__icon {
+    font-size: 1rem;
+    color: var(--orange);
+}
+
+.pf-font-section__label {
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+    flex: 1;
+    color: var(--color-text);
+}
+
+.pf-font-section__value {
+    font-size: var(--fs-xs);
+    font-weight: var(--fw-bold);
+    color: var(--orange);
+    background: var(--orange-pale);
+    padding: 1px 8px;
+    border-radius: var(--radius-full);
+}
+
+.pf-font-section__controls {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+}
+
+.pf-font-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+    color: var(--color-text);
+}
+
+.pf-font-btn--lg {
+    font-size: var(--fs-md);
+}
+
+.pf-font-btn:disabled {
+    opacity: 0.25;
+    cursor: not-allowed;
+}
+
+.pf-font-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    overflow: hidden;
+}
+
+.pf-font-bar__fill {
+    height: 100%;
+    background: var(--orange);
+    border-radius: var(--radius-full);
+    transition: width var(--duration-normal) var(--ease-out);
+}
+
+/* ── Menu Sections ── */
+.pf-menu-section {
+    margin-bottom: var(--sp-4);
+}
+
+.pf-menu-section__title {
+    font-size: 10px;
+    font-weight: var(--fw-bold);
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: var(--sp-2);
+    padding-left: 2px;
+}
+
+.pf-menu-list {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+}
+
+.pf-menu-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    border-bottom: 1px solid var(--color-border-light);
+    text-align: left;
+    transition: background var(--duration-fast);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.pf-menu-item:last-child {
+    border-bottom: none;
+}
+
+.pf-menu-item:active {
+    background: var(--bg-primary);
+}
+
+.pf-menu-item__icon-wrap {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background: var(--orange-pale);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pf-menu-item__icon {
+    font-size: 1rem;
+    color: var(--orange);
+}
+
+.pf-menu-item__text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.pf-menu-item__label {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-text);
+}
+
+.pf-menu-item__sub {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pf-menu-item__arrow {
+    color: var(--color-text-muted);
+    font-size: 0.9rem;
+    flex-shrink: 0;
+}
+
+/* ── Toggle ── */
+.toggle {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.toggle__slider {
+    position: absolute;
+    inset: 0;
+    background: var(--color-border);
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: background var(--duration-fast);
+}
+
+.toggle__slider::before {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    left: 3px;
+    top: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform var(--duration-fast) var(--ease-spring);
+    box-shadow: var(--shadow-xs);
+}
+
+.toggle input:checked+.toggle__slider {
+    background: var(--orange);
+}
+
+.toggle input:checked+.toggle__slider::before {
+    transform: translateX(18px);
+}
+
+/* ── Logout ── */
+.pf-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    width: 100%;
+    padding: var(--sp-3);
+    border: none;
+    border-radius: var(--radius-xl);
+    color: var(--red);
+    font-weight: var(--fw-bold);
+    font-size: var(--fs-sm);
+    background: var(--red-pale);
+    transition: background var(--duration-fast);
+    margin-bottom: var(--sp-3);
+}
+
+.pf-logout:active {
+    background: #FFE5E5;
+}
+
+.pf-logout__icon {
+    font-size: 1.1rem;
+}
+
+/* ── Footer ── */
+.pf-footer {
+    text-align: center;
+    font-size: 10px;
+    color: var(--color-text-muted);
+    padding-bottom: var(--sp-4);
+}

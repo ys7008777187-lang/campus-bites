@@ -1,0 +1,78 @@
+.admin-orders {
+    animation: fadeIn var(--duration-normal) var(--ease-out);
+}
+
+.admin-orders__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--sp-4);
+    flex-wrap: wrap;
+    gap: var(--sp-3);
+}
+
+.admin-orders__summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--sp-4);
+    margin-bottom: var(--sp-5);
+}
+
+.admin-orders__summary-card {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-4);
+    box-shadow: var(--shadow-card);
+    text-align: center;
+}
+
+.admin-orders__summary-value {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-extrabold);
+    color: var(--color-text);
+}
+
+.admin-orders__summary-value--blue {
+    color: #2563EB;
+}
+
+.admin-orders__summary-label {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    margin-top: 2px;
+}
+
+.admin-orders__table-wrap {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-5);
+    box-shadow: var(--shadow-card);
+    overflow-x: auto;
+}
+
+.admin-orders__filter {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+}
+
+.admin-orders__filter select {
+    padding: 8px 16px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-card);
+    font-size: var(--fs-sm);
+    font-family: inherit;
+    cursor: pointer;
+}
+
+.admin-orders__fee-col {
+    color: #2563EB;
+    font-weight: var(--fw-bold);
+}
+
+@media (max-width: 600px) {
+    .admin-orders__summary {
+        grid-template-columns: 1fr;
+    }
+}

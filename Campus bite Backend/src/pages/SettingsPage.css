@@ -1,0 +1,111 @@
+.settings-page {
+    animation: fadeIn var(--duration-normal) var(--ease-out);
+    max-width: 720px;
+}
+
+.settings-section {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-6);
+    box-shadow: var(--shadow-card);
+    border: 1px solid var(--color-border-light);
+    margin-bottom: var(--sp-5);
+}
+
+.settings-section h3 {
+    font-size: var(--fs-lg);
+    font-weight: var(--fw-bold);
+    margin-bottom: var(--sp-5);
+    padding-bottom: var(--sp-3);
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.settings-field {
+    margin-bottom: var(--sp-4);
+}
+
+.settings-field:last-child {
+    margin-bottom: 0;
+}
+
+.settings-field label {
+    display: block;
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-text-secondary);
+    margin-bottom: var(--sp-1);
+}
+
+.settings-field .input {
+    max-width: 400px;
+}
+
+/* ── Operating Hours ── */
+.hours-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+}
+
+.hours-row {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-4);
+    padding: var(--sp-2) 0;
+}
+
+.hours-row__day {
+    width: 100px;
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    text-transform: capitalize;
+}
+
+.hours-row__times {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    font-size: var(--fs-sm);
+    color: var(--color-text-secondary);
+}
+
+.hours-row__times input {
+    width: 100px;
+    padding: 6px 10px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: var(--fs-sm);
+    text-align: center;
+}
+
+.hours-row__times input:focus {
+    outline: none;
+    border-color: var(--orange);
+}
+
+.hours-row--closed {
+    opacity: 0.5;
+}
+
+/* ── Notification Toggles ── */
+.notification-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.notification-row:last-child {
+    border-bottom: none;
+}
+
+.notification-row__info h4 {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+}
+
+.notification-row__info p {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+}

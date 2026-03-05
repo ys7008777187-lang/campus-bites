@@ -1,0 +1,102 @@
+.admin-settings {
+    animation: fadeIn var(--duration-normal) var(--ease-out);
+    max-width: 720px;
+}
+
+.admin-settings__section {
+    background: var(--bg-card);
+    border-radius: var(--radius-xl);
+    padding: var(--sp-6);
+    box-shadow: var(--shadow-card);
+    margin-bottom: var(--sp-5);
+}
+
+.admin-settings__section-title {
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
+    margin-bottom: var(--sp-4);
+    padding-bottom: var(--sp-3);
+    border-bottom: 1px solid var(--color-border-light);
+    color: var(--color-text);
+}
+
+.admin-settings__row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-3) 0;
+    border-bottom: 1px solid var(--color-border-light);
+}
+
+.admin-settings__row:last-child {
+    border-bottom: none;
+}
+
+.admin-settings__row-label h4 {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--color-text);
+}
+
+.admin-settings__row-label p {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+}
+
+.admin-settings__fee-input-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+}
+
+.admin-settings__fee-input {
+    width: 80px;
+    padding: 8px 12px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    font-size: var(--fs-md);
+    font-weight: var(--fw-bold);
+    font-family: inherit;
+}
+
+.admin-settings__fee-input:focus {
+    outline: none;
+    border-color: #2563EB;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.admin-settings__courts {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sp-3);
+}
+
+.admin-settings__court-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--sp-3) var(--sp-4);
+    background: var(--bg-primary);
+    border-radius: var(--radius-lg);
+}
+
+.admin-settings__court-info {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+}
+
+.admin-settings__court-icon {
+    font-size: 1.4rem;
+}
+
+.admin-settings__court-name {
+    font-weight: var(--fw-semibold);
+    font-size: var(--fs-sm);
+}
+
+.admin-settings__court-stores {
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+}
