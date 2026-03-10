@@ -23,10 +23,31 @@ router.post('/login', (req, res) => {
 
     // Student login via phone
     if (phone) {
-        // Static OTP for development — always 1234
-        const otp = '1234';
+        // Generate a random 4-digit OTP
+        const otp = Math.floor(1000 + Math.random() * 9000).toString();
         db.setConfig(`otp_${phone}`, otp);
-        console.log(`📱 OTP for ${phone}: ${otp}`);
+        console.log(`📱 Generated OTP for ${phone}: ${otp}`);
+
+        // Send real SMS via Fast2SMS
+        const FAST2SMS_API_KEY = "YTluc6VCIpjGv49ZaPyLfKAEQFrND8OenqH5SdJRxbiz7BXkUhIpFibwhdRUSv3WX7y6na8YjL5cmHt2";
+
+        fetch("https://www.fast2sms.com/dev/bulkV2", {
+            method: 'POST',
+            headers: {
+                'authorization': FAST2SMS_API_KEY,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                route: "q",
+                message: `Your Campus Bites login OTP is ${otp}. Please do not share this with anyone.`,
+                flash: 0,
+                numbers: phone,
+            })
+        })
+            .then(res => res.json())
+            .then(data => console.log('Fast2SMS sent:', data))
+            .catch(err => console.error('Fast2SMS error:', err));
+
         return res.json({ message: 'OTP sent', phone });
     }
 
