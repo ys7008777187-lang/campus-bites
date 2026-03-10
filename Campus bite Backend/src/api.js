@@ -1,6 +1,6 @@
 // Campus Bites Dashboard API Client
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001/api';
-const WS_URL = import.meta.env.VITE_WS_URL || 'ws://localhost:3001';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://127.0.0.1:3001/api';
+const WS_URL = import.meta.env.VITE_WS_URL || 'ws://127.0.0.1:3001';
 
 function getToken() { return localStorage.getItem('cb_dash_token'); }
 function setToken(t) { localStorage.setItem('cb_dash_token', t); }

@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { generateToken } from '../middleware/auth.js';
+import { generateToken, authMiddleware } from '../middleware/auth.js';
 import { db } from '../db/database.js';
 
 const router = Router();
@@ -59,8 +59,8 @@ router.post('/verify-otp', (req, res) => {
     });
 });
 
-// GET /api/auth/me (auth middleware applied in index.js)
-router.get('/me', (req, res) => {
+// GET /api/auth/me (auth middleware applied here directly)
+router.get('/me', authMiddleware, (req, res) => {
     if (!req.user) return res.status(401).json({ error: 'Not authenticated' });
     const user = db.getUserById(req.user.id);
     if (!user) return res.status(404).json({ error: 'User not found' });

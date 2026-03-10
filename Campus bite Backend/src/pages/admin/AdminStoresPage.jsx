@@ -16,14 +16,22 @@ export default function AdminStoresPage() {
         ownerName: '', phone: '', upiId: '',
     });
 
+    const handleImageUpload = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                setForm(f => ({ ...f, imageUrl: reader.result }));
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+
     // Fetch food courts for the dropdown
     useEffect(() => {
         apiAdminFoodCourts()
             .then(courts => {
                 setCourtOptions(courts);
-                if (courts.length > 0 && !form.courtId) {
-                    setForm(f => ({ ...f, courtId: courts[0].id }));
-                }
             })
             .catch(() => { });
     }, []);
@@ -139,8 +147,8 @@ export default function AdminStoresPage() {
                                     <input className="input" value={form.image} onChange={(e) => setForm({ ...form, image: e.target.value })} placeholder="🍽️" />
                                 </div>
                                 <div className="admin-modal__field">
-                                    <label>Image URL (optional)</label>
-                                    <input className="input" type="url" value={form.imageUrl} onChange={(e) => setForm({ ...form, imageUrl: e.target.value })} placeholder="https://example.com/store-photo.jpg" />
+                                    <label>Store Image (optional)</label>
+                                    <input className="input" type="file" accept="image/*" onChange={handleImageUpload} />
                                 </div>
                             </div>
                             {/* Image preview */}
@@ -152,6 +160,7 @@ export default function AdminStoresPage() {
                             <div className="admin-modal__field">
                                 <label>Food Court *</label>
                                 <select className="input" value={form.courtId} onChange={(e) => setForm({ ...form, courtId: e.target.value })} required>
+                                    <option value="" disabled>Select a Food Court</option>
                                     {courtOptions.map((c) => <option key={c.id} value={c.id}>{c.name}</option>)}
                                 </select>
                             </div>
