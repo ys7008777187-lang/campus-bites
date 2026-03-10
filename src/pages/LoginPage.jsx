@@ -28,7 +28,10 @@ export default function LoginPage({ onLogin }) {
         setError('');
         setLoading(true);
         try {
-            await loginWithPhone(cleaned);
+            const res = await loginWithPhone(cleaned);
+            if (res.simulatedOtp) {
+                alert(`📱 Dev Mode:\nYour OTP is: ${res.simulatedOtp}\n(SMS service unavailable, showing OTP here)`);
+            }
             setStep('otp');
             setTimer(30);
         } catch (err) {
@@ -79,7 +82,8 @@ export default function LoginPage({ onLogin }) {
     const handleResend = () => {
         if (timer > 0) return;
         setOtp(['', '', '', '']);
-        setTimer(30);
+        setError('');
+        handleSendOTP();
     };
 
     return (

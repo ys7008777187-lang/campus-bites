@@ -4,8 +4,40 @@ import { db } from '../db/database.js';
 
 const router = Router();
 
+// ---- Fast2SMS OTP Helper ----
+async function sendOTPviaSMS(phone, otp) {
+    const apiKey = process.env.FAST2SMS_API_KEY || 'YTluc6VCIpjGv49ZaPyLfKAEQFrND8OenqH5SdJRxbiz7BXkUhIpFibwhdRUSv3WX7y6na8YjL5cmHt2';
+    if (!apiKey) {
+        console.warn('⚠️  FAST2SMS_API_KEY not set — falling back to simulated OTP');
+        return { success: false, reason: 'no_api_key' };
+    }
+    try {
+        const response = await fetch('https://www.fast2sms.com/dev/bulkV2', {
+            method: 'POST',
+            headers: {
+                'authorization': apiKey,
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                route: 'otp',
+                variables_values: otp,
+                numbers: phone,
+            }),
+        });
+        const data = await response.json();
+        console.log(`📨 Fast2SMS response for ${phone}:`, JSON.stringify(data));
+        if (data.return === true || data.status_code === 200) {
+            return { success: true };
+        }
+        return { success: false, reason: data.message || 'SMS API error' };
+    } catch (err) {
+        console.error('❌ Fast2SMS error:', err.message);
+        return { success: false, reason: err.message };
+    }
+}
+
 // POST /api/auth/login
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     const { username, password, phone } = req.body;
 
     // Store owner / Super Admin login
@@ -28,8 +60,15 @@ router.post('/login', (req, res) => {
         db.setConfig(`otp_${phone}`, otp);
         console.log(`📱 Generated OTP for ${phone}: ${otp}`);
 
-        // Return the OTP in the response for the frontend to simulate an SMS popup
-        return res.json({ message: 'OTP sent', phone, simulatedOtp: otp });
+        // Send real SMS via Fast2SMS
+        const smsResult = await sendOTPviaSMS(phone, otp);
+        if (smsResult.success) {
+            return res.json({ message: 'OTP sent', phone });
+        } else {
+            // Fallback: return simulated OTP so dev/testing still works
+            console.warn(`⚠️  SMS fallback for ${phone}: ${smsResult.reason}`);
+            return res.json({ message: 'OTP sent (simulated)', phone, simulatedOtp: otp });
+        }
     }
 
     return res.status(400).json({ error: 'Provide username/password or phone' });
