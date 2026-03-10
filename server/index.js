@@ -12,9 +12,6 @@ import adminRoutes from './routes/admin.js';
 
 const PORT = process.env.PORT || 3001;
 
-// Seed database on startup
-seedDatabase();
-
 // Express app
 const app = express();
 app.use(cors({ origin: true, credentials: true })); // allow all origins for now
@@ -94,6 +91,12 @@ app.use((req, res) => {
 
 // Start
 server.listen(PORT, () => {
+    // Seed database in background after port binding to satisfy Render health checks
+    try {
+        seedDatabase();
+    } catch (err) {
+        console.error('❌ Database seeding failed:', err);
+    }
     console.log(`
 ╔═══════════════════════════════════════════╗
 ║    🍕 Campus Bites API Server             ║

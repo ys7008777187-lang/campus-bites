@@ -45,8 +45,13 @@ function toSnakeKey(key) {
 
 // ─── Check if DB is seeded ────────────────────────────────
 export function isSeeded() {
-    const row = sqlite.prepare('SELECT COUNT(*) as count FROM food_courts').get();
-    return row.count > 0;
+    try {
+        const row = sqlite.prepare('SELECT COUNT(*) as count FROM food_courts').get();
+        return row && row.count > 0;
+    } catch (e) {
+        // If table doesn't exist, it's definitely not seeded
+        return false;
+    }
 }
 
 // For backward compat — not used with SQLite but kept for seed.js
