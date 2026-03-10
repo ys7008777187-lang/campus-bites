@@ -56,7 +56,7 @@ router.post('/login', async (req, res) => {
     // Student login via phone
     if (phone) {
         // Generate a random 4-digit OTP
-        const otp = Math.floor(1000 + Math.random() * 9000).toString();
+        const otp = '1234'; // Static OTP for testing
         db.setConfig(`otp_${phone}`, otp);
         console.log(`📱 Generated OTP for ${phone}: ${otp}`);
 
